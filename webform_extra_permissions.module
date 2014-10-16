@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * This module allows for extra permissions 
+ * to be set in order to allow roles to edit
+ * webform nodes but not the webforms themselves
+ *
+ * Module developed by Bartezz for Intrige.nl
+ *
+ * @author Bartezz http://drupal.org/user/284019
+ */ 
+ 
+/**
+ * Implementation of hook_perm().
+ */
+function webform_extra_permissions_permission() {
+  return array(
+    'edit webform form settings' => array(
+      'title' => 'Edit the Webform settings',
+      'description' => 'This allows the site builder to restrict access',
+    )
+  );
+}
+
+/**
+ * Implementation of hook_menu_alter().
+ */
+function webform_extra_permissions_menu_alter(&$items) {
+  $items['node/%webform_menu/webform']['access callback'] = 'user_access';
+  $items['node/%webform_menu/webform']['access arguments'] = array('edit webform form settings');
+}

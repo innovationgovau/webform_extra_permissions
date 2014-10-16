@@ -1,0 +1,6 @@
+name = Webform Extra Permissions
+description = Module allows for extra permissions to be set in order to allow roles to edit webform nodes but not the webforms themselves
+dependencies[] = webform
+core = 7.x
+package = Webform
+version = 7.x-1.x-alpha1
